@@ -11,7 +11,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import axios from "axios";
-import OrigamiPic from "../assets/Origami.png";
+import OrigamiPic from "../assets/origami.png";
 import toast from "react-hot-toast";
 import { toastStyle, toastSuccessStyle } from "../utils/ToastStyles";
 import socket from "../utils/Socket";
