@@ -14,7 +14,7 @@ import { Download } from "lucide-react";
 import toast from "react-hot-toast";
 import { toastStyle, toastSuccessStyle } from "../utils/ToastStyles";
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || "http://localhost:5000";
+const SOCKET_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 // --- Encryption helpers ---
 const ENCRYPTION_PASSWORD =
