@@ -1,4 +1,3 @@
-import AuthBGVdo from "../assets/AuthFormBGVdo.mp4";
 import AuthSubmit from "../components/buttons/AuthSubmit";
 import AuthInput from "../components/Inputs/AuthInput";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,6 +6,27 @@ import { useState } from "react";
 import { toastStyle, toastSuccessStyle } from "../utils/ToastStyles";
 import axios from "axios";
 import toast from "react-hot-toast";
+
+const codeChars = ["0", "1", "<", ">", "/", "{", "}", "=", ";", "(", ")", "[", "]"];
+
+function AnimatedCodeBg() {
+    return (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="w-full h-full grid grid-cols-12 grid-rows-8 gap-2 opacity-30 animate-pulse select-none">
+                {Array.from({ length: 96 }).map((_, i) => (
+                    <span
+                        key={i}
+                        className={`text-green-400 text-lg font-mono animate-bounce`}
+                        style={{ animationDelay: `${(i % 12) * 0.1}s` }}
+                    >
+                        {codeChars[Math.floor(Math.random() * codeChars.length)]}
+                    </span>
+                ))}
+            </div>
+            <div className="absolute inset-0 bg-black/60" />
+        </div>
+    );
+}
 
 const Login = () => {
     const nav = useNavigate();
@@ -52,19 +72,8 @@ const Login = () => {
     }
 
     return (
-        <div className="relative h-screen w-full overflow-hidden">
-            <video
-                className="absolute inset-0 w-full h-full object-cover z-0"
-                src={AuthBGVdo}
-                autoPlay
-                loop
-                muted
-                disablePictureInPicture
-                controls={false}
-            />
-
-            <div className="absolute inset-0 bg-black/50 z-0" />
-
+        <div className="relative h-screen w-full overflow-hidden bg-black">
+            <AnimatedCodeBg />
             <div className="relative z-10 grid md:grid-cols-2 h-full">
                 <div className="hidden md:flex flex-col justify-center items-center h-full">
                     <div className="text-white">
